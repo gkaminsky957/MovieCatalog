@@ -78,7 +78,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageHeightConstraint" destination="WT1-Xb-bwD" id="Rxj-e2-JMx"/>
                 <outlet property="imageWidthConstraint" destination="cb7-YF-8vY" id="n17-bT-YGj"/>
                 <outlet property="movieTitle" destination="iwc-4w-OtN" id="Nuz-5N-mpa"/>
                 <outlet property="moviewImageView" destination="E8x-CN-eCr" id="EYR-kL-2Xt"/>

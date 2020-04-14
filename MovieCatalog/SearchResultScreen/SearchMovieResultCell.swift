@@ -13,7 +13,6 @@ class SearchMovieResultCell: UITableViewCell {
     @IBOutlet weak var moviewImageView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var year: UILabel!
-    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
@@ -29,11 +28,16 @@ class SearchMovieResultCell: UITableViewCell {
             let imageView = UIImage(data: image)
             self.moviewImageView.image = imageView
             
-            let height = imageView!.size.height
-            let width = imageView!.size.width
-            
-            imageWidthConstraint.constant = width
-            imageHeightConstraint.constant = height
+            // the image that we are getting is to big to display on the phone.
+            // It seems to be designed for a web app on desktop. So, we need
+            // to resize it preserving image aspect ratio.
+            self.resizeImage()
         }
+    }
+    
+    private func resizeImage() {
+        let imageView = self.moviewImageView.image
+        let ratio = imageView!.size.width/imageView!.size.height
+        imageWidthConstraint.constant = self.moviewImageView.frame.size.height * ratio
     }
 }

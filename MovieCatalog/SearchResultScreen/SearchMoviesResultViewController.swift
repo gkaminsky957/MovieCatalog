@@ -25,7 +25,6 @@ class SearchMoviesResultViewController: UIViewController {
         title = "Search Results"
         movieTable.isHidden = true
         movieTable.dataSource = self
-        movieTable.delegate = self
         movieTable.register(UINib(nibName: "SearchMovieResultCell", bundle: .main),                                   forCellReuseIdentifier: SEARCH_MOVIE_RESULT_REUSE_IDENTIFIER)
         movieTable.rowHeight = UITableView.automaticDimension
         movieTable.estimatedRowHeight = 150
@@ -50,15 +49,12 @@ extension SearchMoviesResultViewController: UITableViewDataSource {
             cell.setCell(title: movieInfo.title!,
                          year: movieInfo.year!,
                          image: viewModel.getMoviePosterBy(index: indexPath.row))
+            cell.selectionStyle = .none
             return cell
         }
         //should not happen
         return UITableViewCell()
     }
-}
-
-extension SearchMoviesResultViewController: UITableViewDelegate {
-    
 }
 
 extension SearchMoviesResultViewController: SearchMoviesResultViewModelDelegate {
