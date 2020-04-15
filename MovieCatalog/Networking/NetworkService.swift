@@ -8,6 +8,9 @@
 
 import Foundation
 
+// This is a wrapper around URLSession object. It hides actual network calls.
+// It is used throughout the application whenever netwrok commuication is needed.
+// If we decide to use diffrerent network library only this file will change.
 protocol NetworkServiceProtocol {
     func request(url: String, method: String, headers: [String: String], callback: @escaping  (Data?, URLResponse?, Error?) -> Void)
 }

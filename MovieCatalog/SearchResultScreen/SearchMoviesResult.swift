@@ -8,6 +8,7 @@
 
 import Foundation
 
+// This defines data model for movie search server response.
 struct MovieInfo {
     var title: String?
     var year: String?

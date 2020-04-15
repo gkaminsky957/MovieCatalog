@@ -28,7 +28,7 @@ class SearchMovieResultCell: UITableViewCell {
             let imageView = UIImage(data: image)
             self.moviewImageView.image = imageView
             
-            // the image that we are getting is to big to display on the phone.
+            // the image that we are getting is too big to display on the phone.
             // It seems to be designed for a web app on desktop. So, we need
             // to resize it preserving image aspect ratio.
             self.resizeImage()

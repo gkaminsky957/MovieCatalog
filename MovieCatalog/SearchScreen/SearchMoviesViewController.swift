@@ -19,10 +19,12 @@ class SearchMoviesViewController: UIViewController {
     let pickerViewItems: [String] = ["movie", "series", "episodes"]
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
+        // the user pressed submit button. Transition to search result screen.
         performSegue(withIdentifier: "segueToSearchResult", sender: nil)
     }
     
     @IBAction func clickedOutsidePickerView(_ sender: UITapGestureRecognizer) {
+        // Dsimiss the picker view when the user taps outside of it.
         if movieSeriesPicker.isFirstResponder {
             movieSeriesPicker.resignFirstResponder()
         }
@@ -32,12 +34,17 @@ class SearchMoviesViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Search for a movie"
+        
+        // Configure submit button.
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.blue.cgColor
         submitButton.isEnabled = false
+        
+        // Configure moview title editor.
         titleValueEditor.delegate = self
         titleValueEditor.addTarget(self, action: #selector(editorDidChanged), for: .editingChanged)
         
+        // Create and configure picker view when the user taps on TV/Series editor
         pickerView = UIPickerView()
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -49,6 +56,8 @@ class SearchMoviesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSearchResult" {
+            // Create a view model for SearchMoviesResultViewController to use
+            // when it loads.
             if let destinationVC = segue.destination as? SearchMoviesResultViewController {
                 destinationVC.viewModel = SearchMoviesResultViewModel(title: titleValueEditor.text!,
                                                                       movieType: movieSeriesPicker.text!,
@@ -59,6 +68,9 @@ class SearchMoviesViewController: UIViewController {
     
     @objc
     func editorDidChanged(textField: UITextField) {
+        // This function is called every time the user types in
+        // title of the movie. Since this field is required field
+        // we disable submit button when this field is empty.
         if textField.text == "" {
             enableSubmutButton(enable: false)
         } else {
@@ -73,13 +85,22 @@ class SearchMoviesViewController: UIViewController {
 
 extension SearchMoviesViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Since the movie pikcer editor creates a picker view we don't allow
+        //  user to type in movieSeriesPicker editor
         if textField == movieSeriesPicker {
             return false
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool  {
+        // Enable "Return" key to dismiss a keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
+// The cod below creates and confiures the picker view.
 extension SearchMoviesViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

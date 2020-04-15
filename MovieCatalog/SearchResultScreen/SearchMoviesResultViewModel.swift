@@ -8,6 +8,10 @@
 
 import Foundation
 
+// This object handles all data  associated with movies. SearchMoviesResultViewController
+// uses it to present data to user.
+
+// ViewModel methods that SearchMoviesResultViewController can use.
 protocol SearchMoviesResultViewModelProtocol {
     func loadMovies()
     var delegate: SearchMoviesResultViewModelDelegate! { set get }
@@ -16,6 +20,7 @@ protocol SearchMoviesResultViewModelProtocol {
     func getMoviePosterBy(index: Int) -> Data?
 }
 
+// Callbacks to SearchMoviesResultViewController to notify it when data is recived by viewModel
 protocol SearchMoviesResultViewModelDelegate: class {
     func handleSuccessfulResposne()
     func handleErorr(errorString: String)
@@ -27,6 +32,9 @@ class SearchMoviesResultViewModel: SearchMoviesResultViewModelProtocol {
     var title: String
     var movieType: String
     var client: SearchMoviewResultClientProtocol
+    
+    // This is ideally should be in some configuration file perhaps in info.plist file
+    // and potentially be configured differently for each environment (dev, staging, prod, etc).
     let baseURL = "http://www.omdbapi.com/?apikey=acb95f63"
     
     var moviesCollection: [MovieInfo]

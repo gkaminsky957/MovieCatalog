@@ -8,12 +8,16 @@
 
 import Foundation
 
+// This object has all business logic for handling server requests on
+// "SearchMovieResultViewController" screen.
+
 protocol SearchMoviewResultClientProtocol {
     func loadMoviews(url: String)
     func loadImage(url: String, index: Int, callback: @escaping (Data?, Int) -> Void)
     var delegate: SearchoviewResultModelDelegateProtocol! { set get }
 }
 
+// Callbacks to communicate recieved data back to SearchMovieResultViewModel
 protocol SearchoviewResultModelDelegateProtocol: class {
     func handleHTTPNetworkError(statusCode: Int)
     func handleSuccessfulResponse(movies: SearchMoviesResult)
