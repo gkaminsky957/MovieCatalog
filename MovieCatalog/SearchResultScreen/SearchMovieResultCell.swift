@@ -40,4 +40,11 @@ class SearchMovieResultCell: UITableViewCell {
         let ratio = imageView!.size.width/imageView!.size.height
         imageWidthConstraint.constant = self.moviewImageView.frame.size.height * ratio
     }
+    
+    override func prepareForReuse() {
+        // need to reset image to nill. So, when the cell is being re-used
+        // the image from older cell is not shown in the current cell that does not
+        // have an image.
+        self.moviewImageView.image = nil
+    }
 }
