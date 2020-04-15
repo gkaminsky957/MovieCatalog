@@ -34,6 +34,7 @@ class SearchMoviesViewController: UIViewController {
         title = "Search for a movie"
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.blue.cgColor
+        submitButton.isEnabled = false
         titleValueEditor.delegate = self
         titleValueEditor.addTarget(self, action: #selector(editorDidChanged), for: .editingChanged)
         
