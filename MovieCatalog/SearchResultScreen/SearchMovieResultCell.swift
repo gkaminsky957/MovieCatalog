@@ -11,19 +11,24 @@ import UIKit
 class SearchMovieResultCell: UITableViewCell {
 
     @IBOutlet weak var moviewImageView: UIImageView!
+    @IBOutlet weak var movieTitleValue: UILabel!
+    @IBOutlet weak var yearValue: UILabel!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var year: UILabel!
-    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var yearTitle: UILabel!
     
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        movieTitle.text = "MovieListScreen.movieTitle".localized
+        yearTitle.text = "MovieListScreen.movieYear".localized
     }
     
     func setCell(title: String,
                  year: String,
                  image: Data?) {
-        self.movieTitle.text = title
-        self.year.text = year
+        self.movieTitleValue.text = title
+        self.yearValue.text = year
         if let image = image {
             let imageView = UIImage(data: image)
             self.moviewImageView.image = imageView

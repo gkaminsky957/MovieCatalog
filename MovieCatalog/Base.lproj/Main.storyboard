@@ -83,6 +83,9 @@
                     <navigationItem key="navigationItem" id="ca9-bI-gyy"/>
                     <connections>
                         <outlet property="movieSeriesPicker" destination="NSI-K8-qvz" id="cH2-21-Q0N"/>
+                        <outlet property="movieSeriesTitle" destination="tDA-Ms-CcV" id="akE-Kj-Wts"/>
+                        <outlet property="movieTitle" destination="A0U-fE-bYu" id="7JB-uO-I8m"/>
+                        <outlet property="screenDescription" destination="Mwu-Sc-GJr" id="6Vz-S2-cSn"/>
                         <outlet property="submitButton" destination="y7T-mP-N9j" id="fWf-dh-Uep"/>
                         <outlet property="titleLabel" destination="A0U-fE-bYu" id="YSD-sj-kRT"/>
                         <outlet property="titleValueEditor" destination="wGT-Mw-4CA" id="4NL-va-IR5"/>

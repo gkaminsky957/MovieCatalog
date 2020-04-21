@@ -14,7 +14,9 @@ class SearchMoviesViewController: UIViewController {
     @IBOutlet weak var titleValueEditor: UITextField!
     @IBOutlet weak var movieSeriesPicker: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-
+    @IBOutlet weak var screenDescription: UILabel!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieSeriesTitle: UILabel!
     var pickerView: UIPickerView!
     let pickerViewItems: [String] = ["movie", "series", "episodes"]
     
@@ -33,13 +35,18 @@ class SearchMoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Search for a movie"
+        title = "MovieSearchScreen.viewTitle".localized
+        screenDescription.text = "MovieSearchScreen.viewDescription".localized
+        movieTitle.text = "MovieSearchScreen.movieTitle".localized
+        movieSeriesTitle.text = "MovieSearchScreen.moviePickerTitle".localized
         
+
         // Configure submit button.
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.blue.cgColor
         submitButton.isEnabled = false
-        
+        submitButton.setTitle("MovieSearchScreen.submitButtonTitle".localized,
+                              for: .normal)
         // Configure moview title editor.
         titleValueEditor.delegate = self
         titleValueEditor.addTarget(self, action: #selector(editorDidChanged), for: .editingChanged)

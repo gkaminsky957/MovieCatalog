@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>MovieListScreen</key>
+    <dict>
+        <key>movieTitle</key>
+        <string>Title:</string>
+        <key>movieYear</key>
+        <string>Year:</string>
+        <key>viewTitle</key>
+        <string>Search Results</string>
+    </dict>
+    <key>MovieSearchScreen</key>
+    <dict>
+        <key>movieTitle</key>
+        <string>Титул фильмов:</string>
+        <key>moviePickerTitle</key>
+        <string>Жанр:</string>
+        <key>viewTitle</key>
+        <string>Поиск фильмов</string>
+        <key>viewDescription</key>
+        <string>Введите данные для поиска фильмов.</string>
+        <key>submitButtonTitle</key>
+        <string>Искать</string>
+    </dict>
+</dict>
+</plist>

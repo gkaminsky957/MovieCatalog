@@ -22,7 +22,7 @@ class SearchMoviesResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Search Results"
+        title = "MovieListScreen.viewTitle".localized
         
         // Configure movieTable
         movieTable.isHidden = true

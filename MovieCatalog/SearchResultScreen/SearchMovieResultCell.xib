@@ -79,9 +79,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageWidthConstraint" destination="cb7-YF-8vY" id="n17-bT-YGj"/>
-                <outlet property="movieTitle" destination="iwc-4w-OtN" id="Nuz-5N-mpa"/>
+                <outlet property="movieTitle" destination="HNj-oU-rrG" id="31d-gn-Lxm"/>
+                <outlet property="movieTitleValue" destination="iwc-4w-OtN" id="y9z-Hp-WZc"/>
                 <outlet property="moviewImageView" destination="E8x-CN-eCr" id="EYR-kL-2Xt"/>
-                <outlet property="year" destination="J5L-G9-Bcg" id="ZQ8-lf-XRS"/>
+                <outlet property="yearTitle" destination="YQv-YA-vk8" id="8fc-JW-QxV"/>
+                <outlet property="yearValue" destination="J5L-G9-Bcg" id="ets-Z8-k8G"/>
             </connections>
             <point key="canvasLocation" x="100.72463768115942" y="172.43303571428569"/>
         </tableViewCell>
