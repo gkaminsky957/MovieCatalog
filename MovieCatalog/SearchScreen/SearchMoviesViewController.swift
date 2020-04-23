@@ -59,6 +59,7 @@ class SearchMoviesViewController: UIViewController {
         movieSeriesPicker.inputView = pickerView
         movieSeriesPicker.delegate = self
         movieSeriesPicker.textAlignment = .center
+        movieSeriesPicker.tintColor = UIColor.clear
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
